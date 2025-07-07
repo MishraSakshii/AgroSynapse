@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation Result</title>
+    <style>
+        body {
+            background-image: url("/static/crop.jpg"); /* Ensure this image exists */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 0 15px #000;
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌾 {{ lang_dict['Recommended Crop'] if lang_dict else 'Recommended Crop' }}: {{ crop }}</h2>
+
+        <div class="section">
+            <p><strong>NDVI:</strong> {{ ndvi }}</p>
+            <p><strong>Rainfall:</strong> {{ rainfall }} mm</p>
+            <p><strong>Soil Moisture:</strong> {{ moisture }}%</p>
+            <p><strong>Previously Grown Crop:</strong> {{ prev_crop }}</p>
+        </div>
+
+        {% if schedule %}
+        <div class="section">
+            <h3>📅 {{ lang_dict['Crop Calendar'] if lang_dict else 'Crop Calendar' }}</h3>
+            <p><strong>{{ lang_dict['Sowing Date'] if lang_dict else 'Sowing Date' }}:</strong> {{ schedule.sowing }}</p>
+            <p><strong>{{ lang_dict['Irrigation Date'] if lang_dict else 'Irrigation Date' }}:</strong> {{ schedule.irrigation }}</p>
+            <p><strong>{{ lang_dict['Harvest Date'] if lang_dict else 'Harvest Date' }}:</strong> {{ schedule.harvesting }}</p>
+        </div>
+        {% endif %}
+
+        {% if rotation %}
+        <div class="section">
+            <h3>🔁 {{ lang_dict['Suggested Crop Rotation Options'] if lang_dict else 'Suggested Crop Rotation Options' }}</h3>
+            <ul>
+                {% for rot in rotation %}
+                    <li>{{ rot }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+

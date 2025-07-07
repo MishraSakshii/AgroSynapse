@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agro Crop Recommendation</title>
+    <style>
+        body {
+            background-image: url("/static/farm.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/predict">
+        <h2>Enter Agro Parameters</h2>
+        NDVI Value: <input type="number" name="ndvi" required step="any"><br>
+        Rainfall (mm): <input type="number" name="rainfall" required step="any"><br>
+        Soil Moisture (%): <input type="number" name="moisture" required step="any"><br>
+        Email Address: <input type="email" name="email" placeholder="Enter your email" required><br>
+        <label for="prev_crop">Previously Grown Crop:</label>
+        <select name="prev_crop" required>
+            <option value="rice">Rice</option>
+            <option value="wheat">Wheat</option>
+            <option value="millet">Millet</option>
+            <option value="maize">Maize</option>
+            <option value="pulses">Pulses</option>
+        </select><br>
+        <label for="lang">Select Language:</label>
+        <select name="lang">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="te">Telugu</option>
+            <option value="kn">Kannada</option>
+        </select><br>
+        <input type="submit" value="Get Recommendation">
+    </form>
+</body>
+</html>
