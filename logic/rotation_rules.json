@@ -1,0 +1,7 @@
+{
+  "rice": ["pulses", "millet"],
+  "wheat": ["legumes", "maize"],
+  "millet": ["rice", "wheat"],
+  "pulses": ["millet", "sorghum"],
+  "maize": ["legumes", "rice"]
+}
