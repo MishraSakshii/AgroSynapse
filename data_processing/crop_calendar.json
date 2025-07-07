@@ -1,0 +1,27 @@
+{
+    "rice": {
+        "sowing_days": 0,
+        "irrigation_days": 30,
+        "harvesting_days": 120
+    },
+    "wheat": {
+        "sowing_days": 0,
+        "irrigation_days": 25,
+        "harvesting_days": 110
+    },
+    "maize": {
+        "sowing_days": 0,
+        "irrigation_days": 20,
+        "harvesting_days": 90
+    },
+    "millet": {
+        "sowing_days": 0,
+        "irrigation_days": 15,
+        "harvesting_days": 85
+    },
+    "pulses": {
+        "sowing_days": 0,
+        "irrigation_days": 25,
+        "harvesting_days": 95
+    }
+}
